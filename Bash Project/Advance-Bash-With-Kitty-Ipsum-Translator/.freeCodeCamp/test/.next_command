@@ -1,0 +1,558 @@
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+echo hello bash
+echo > stdout.txt
+echo hello bash > stdout.txt
+echo hello bash >> stdout.txt
+echo hello bash > stdout.txt
+> stdout.txt
+bad_command
+bad_command > stderr.txt
+bad_command 2> stderr.txt
+echo hello bash > stdout.txt
+echo hello bash >> stdout.txt
+echo hello bash > stdout.txt
+> stdout.txt
+echo hello bash > stdout.txt
+echo hello bash 2> stdout.txt
+echo hello bash > stdout.txt
+read NAME
+echo $NAME
+echo $NAME >> stdout.txt
+> stdout.txt
+echo hello bash > stdout.txt
+echo $NAME > stdout.txt
+echo freecodecamp > name.txt
+rm name.txt
+echo freCodeCamp > name.txt
+echo freeCodeCamp > name.txt
+read Name < name.txt
+read NAME < name.txt
+echo $NAME > name.txt
+echo $NAME < name.txt
+echo $NAME
+echo omari
+echo $NAME
+cat
+cat name.txt
+__vsc_prompt_cmd_original
+echo name.txt
+cat > name.txt
+echo freeCodeCamp > name.txt
+cat < name.txt
+echo omari
+echo omari
+touch script.sh
+chmod +x ./script.sh
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+./script.sh
+echo Omari
+echo Omari
+echo Omart < ./script.sh
+echo Omari < ./script.sh
+echo Omart
+echo Omari
+echo Omari
+cat name.txt
+echo Omari
+echo Omari
+./script.sh < name.txt
+./script.sh < name.txt 2> stderr.txt
+./script.sh < name.txt 2> stderr.txt > stdour.txt
+rm stdoour.txt
+rm stdour.txt
+./script.sh < name.txt 2> stderr.txt > stdout.txt
+cat kitty_ipsum_1.txt
+cat kitty_ipsum_2.txt
+__vsc_prompt_cmd_original
+wc kitty_ipsum_1.txt
+man wc
+wc -l kitty_ipsum_1.txt
+wc -w kitty_ipsum_1.txt
+wc -m kitty_ipsum_1.txt
+wc kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt < wc
+wc < kitty_ipsum_1.txt
+echo ~~ kitty_ipsum_1.txt info ~~ < kitty_info.txt
+echo " ~~ kitty_ipsum_1.txt info ~~" > kitty_info.txt
+rm kitty_info.txt
+echo "~~ kitty_ipsum_1.txt info ~~" > kitty_info.txt
+echo -e "\nNumber of lines:" >> kitty_info.txt
+cat kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt
+echo -e "\n Number of words:" >> kitty_info.txt
+echo -e "\nNumber of words:" >> kitty_info.txt
+cat kitty_ipsum_1.txt
+echo -e "\nNumber of characters:" >> kitty_info.txt
+cat kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt -m < wc >> kitty_info.txt
+wc -m < kitty_ipsum_1.txt >> kitty_info.txt
+grep 'meow' kitty_ipsum_1.txt
+man grep
+grep --color 'meow' kitty__ipsum_1.txt
+grep --color 'meow' kitty_ipsum_1.txt
+man grep
+grep -x 'meow' kitty_ipsum_1.txt
+grep -n 'meow' kitty_ipsum_1.txt
+grep --color -n 'meow' kitty_ipsum_1.txt
+__vsc_prompt_cmd_original
+grep --color -n 'meow[a-z]*' kitty_ipsum_1.txt
+echo -e "\nNumber of times meow or meowzer appears:"
+echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt
+grep --color 'meow[a-z]*' kitty_ipsum_1.txt
+grep --c 'meow[a-z]*' kitty_ipsum_1.txt
+grep -c 'meow[a-z]*' kitty_ipsum_1.txt
+man grep
+grep -o 'meow[a-z]*' kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt
+grep -o 'meow[a-z]*' kitty_ipsum_1.txt
+grep -o 'meow[a-z]*' kitty_ipsum_1.txt
+echo -e "\nLines that appear on:" >> kitty_info.txt
+echo -e "\nLines that they appear on:" >> kitty_info.txt
+grep -n 'meoe[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+man grep
+cat name.txt
+sed 's/r/2/' name.txt
+sed 's/free/f233/' name.txt
+sed 's/f233/c0d3c@mp/' name.txt
+sed 's/freecodecamp/f233c0d3c@mp/' name.txt
+sed 's/freeCodeCamp/f233c0d3c@mp/' name.txt
+sed 's/freecodecamp/f233C0d3c@mp/' name.txt
+sed 's/freeCodeCamp/f233C0d3c@mp/' name.txt
+sed 's/freecodecamp/f233c0d3c@mp/' name.txt
+sed 's/freecodecamp/f233c0d3c@mp/' name.txt
+sed 's/freecodecamp/f233C0d3C@mp/' name.txt
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+sed 's/freecodecamp/f233C0d3C@mp/' name.txt
+sed 's/freecodecamp/f233C0d3C@mp/' -i name.txt
+sed 's/freecodecamp/f233C0d3C@mp/i' name.txt
+sed 's/freecodecamp/f233C0d3C@mp/i' > name.txt
+sed 's/freecodecamp/f233C0d3C@mp/i' < name.txt
+cat name.txt
+grep -n 'meow[a-z]*'kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+__vsc_prompt_cmd_original
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+man sed
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep --color 'cat[a-z]*' kitty_ipsum_1.txt
+echo -e "\nNumber of times cat, cats or catnip appears:" >> kitty_info.txt
+echo -e "\nNumber of times cat, cats, or catnip appears:" >> kitty_info.txt
+__vsc_prompt_cmd_original
+grep -o 'cat[a-z]*' kitty_ipsum_1.txt
+grep -o 'cat[a-z]*' kitty_ipsum_1.txt
+grep -o 'cat[a-z]*' kitty_ipsum_1.txt
+echo -e "\nLines that appear on:" >> kitty_info.txt
+echo -e "\nLines that they appear on:" >> kitty_info.txt
+grep -n 'cat[a-z]*' kitty_ipsum_1.txt
+grep -n 'cat[a-z]*' kitty_ipsum_1.txt
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt
+grep -n 'cat[a-z]*' kitty_ipsum_1.txt
+grep -n 'cat[a-z]*' kitty_ipsum_1.txt
+grep -n 'cat[a-z]*' kitty_ipsum_1.txt
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+echo -e "\n~~ kitty_ipsum_2.txt.info ~~" >> kitty_info.txt
+echo -e "\n~~ kitty_ipsum_2.txt.info ~~" >> kitty_info.txt
+echo -e "\n\n~~ kitty_ipsum_2.txt.info ~~" >> kitty_info.txt
+echo -e "\n\n~~ kitty_ipsum_2.txt info ~~" >> kitty_info.txt
+echo -e "\nNumber of lines:" >> kitty_info.txt
+cat kitty_ipsum_2.txt
+echo -e "\nNumber of words:" >> kitty_info.txt
+wc -w < kitty_ipsum_2.txt >> kitty_info.txt
+echo -e "\nNumber of characters:" >> kitty_info.txt
+cat kitty_ipsum_2.txt
+grep --color 'meow[a-z]*' kitty_ipsum_2.txt
+echo -e "\nNumber of times meow or meowzer appears:" >> kitty_info.txt
+grep --color 'meow[a-z]*' kitty_ipsum_2.txt
+grep --color 'meow[a-z]*' kitty_ipsum_2.txt
+grep -o 'meow[a-z]*' kitty_ipsum_2.txt
+echo -e "\nLines that they appear on:" >> kitty_info.txt
+grep -n 'meow[a-z]*' kitty_ipsum_2.txt
+grep -n 'meow[a-z]*' kitty_ipsum_2.txt
+grep -n 'meow[a-z]*' kitty_ipsum_2.txt
+grep -n 'meow[a-z]*' kitty_ipsum_2.txt
+grep --color 'cat[a-z]*' kitty_ipsum_2.txt
+echo -e "\nNumber of times cat, cats, or catnip appears:" >> kitty_info.txt
+grep --color 'cat[a-z]*' kitty_ipsum_2.txt
+grep --color 'cat[a-z]*' kitty_ipsum_2.txt
+grep -o 'cat[a-z]*' kitty_ipsum_2.txt
+echo -e "\nLines that they appear on:"
+echo -e "\nLines that they appear on:" >> kitty_info.txt
+grep -n 'cat[a-z]*' kitty_ipsum_2.txt
+grep -n 'cat[a-z]*' kitty_ipsum_2.txt
+grep -n 'cat[a-z]*' kitty_ipsum_2.txt
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+git remote set-url origin https://github.com/omari-kd/Advanced-Bash-By-Building-A-Kitty-Ipsum-Translator.git
+git branch -M main
+git push -u origin main
+echo "# Advanced-Bash-By-Building-A-Kitty-Ipsum-Translator" >> README.md
+git push -u origin
+git gc --prune=now
+git push -u origin main
+git remote remove origin
+__vsc_prompt_cmd_original
+git status
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/omari-kd/Advanced-Bash-By-Building-A-Kitty-Ipsum-Translator.git
+git branch -M main
+git push -u origin main
+git remote remove origin
+git stats
+__vsc_prompt_cmd_original
+git status
+touch translate.sh
+chmod +x ./translate.sh
+./translate.sh
+./translate.sh kitty_ipsum_1.txt
+./translate.sh < kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt
+cat kitty_ipsum_1.txt
+./translate.sh
+cat kitty_ipsum_1.txt
+./translate.sh < kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+grep --color 'dogchow[a-z]' ./translate.sh kitty_ipsum_1.txt
+grep --color 'dogchow[a-z]'
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt
+./translate.sh kitty_ipsum_2.txt
+./translate.sh kitty_ipsum_2.txt > doggy_ipsum_1.txt
+./translate.sh kitty_ipsum_1.txt > doggy_ipsum_1.txt
+cat doggy_ipsum_1.txt
+diff kitty_ipsum_1.txt doggy_ipsum_1.txt
+man diff
+diff --color kitty_ipsum_1.txt doggy_ipsum_1.txt
+./translate.sh kitty_ipsum_2.txt > doggy_ipsum_2.txt
+clear
+echo "# Advance-Bash-With-Kitty-Ipsum-Translator" >> README.md
+rm -rf .git
+git init
+cat doggy_ipsum_2.txt
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+diff --color kitty_ipsum_1.txt doggy_ipsum_1.txt
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+git init
+git add .
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+git status
+git add .
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+builtin unset VSCODE_INJECTION
+[ -z "$VSCODE_SHELL_INTEGRATION" ]
+[ -n "${VSCODE_ENV_REPLACE:-}" ]
+[ -n "${VSCODE_ENV_PREPEND:-}" ]
+[ -n "${VSCODE_ENV_APPEND:-}" ]
+__vsc_regex_environment="^CYGWIN*|MINGW*|MSYS*"
+[[ "$(uname -s)" =~ $__vsc_regex_environment ]]
+__vsc_is_windows=0
+__vsc_regex_histcontrol=".*(erasedups|ignoreboth|ignoredups).*"
+[[ "$HISTCONTROL" =~ $__vsc_regex_histcontrol ]]
+__vsc_history_verify=1
+builtin unset __vsc_regex_environment
+builtin unset __vsc_regex_histcontrol
+__vsc_initialized=0
+__vsc_original_PS1="$PS1"
+__vsc_original_PS2="$PS2"
+__vsc_custom_PS1=""
+__vsc_custom_PS2=""
+__vsc_in_command_execution="1"
+__vsc_current_command=""
+__vsc_nonce="$VSCODE_NONCE"
+unset VSCODE_NONCE
+__vsc_stable="$VSCODE_STABLE"
+unset VSCODE_STABLE
+[ "$__vsc_stable" = "0" ]
+[ -n "$STARSHIP_SESSION_KEY" ]
+[ -n "$POSH_SESSION_ID" ]
+builtin printf '\e]633;P;HasRichCommandDetection=True\a'
+[[ -n "${bash_preexec_imported:-}" ]]
+__vsc_dbg_trap="$(__vsc_get_trap DEBUG)"
+[[ -z "$__vsc_dbg_trap" ]]
+[[ "$__vsc_dbg_trap" != '__vsc_preexec "$_"' && "$__vsc_dbg_trap" != '__vsc_preexec_all "$_"' ]]
+trap '__vsc_preexec_all "$_"' DEBUG
+__vsc_original_prompt_command=${PROMPT_COMMAND:-}
+chmod +x translate.sh
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+./translate.sh
+git status
+ls --color=auto -l
+cat translate.sh
+git config user.name
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+rm doggy_ipsum_2.txt
+./translate.sh kitty_ipsum_2.txt > doggy_ipsum_2.txt
+diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+cat doggy_ipsum_2.txt
+git remote set-url https://github.com/omari-kd/Advance-Bash-With-Kitty-Ipsum-Translator.git
+git branch -M Main
+git status
+git add .
+git remote -v
+git push -u origin main
+git branch
+git branch -m Main main
+git remote add origin https://github.com/omari-kd/Advance-Bash-With-Kitty-Ipsum-Translator.git
+git remote -v
+git push -u origin main
+git pull
+git pull remote main
+git push -u origin main
+git pull origin main --rebase
+git add .
